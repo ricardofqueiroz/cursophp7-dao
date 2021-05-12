@@ -12,17 +12,17 @@ class Sql extends PDO
 		$this->conn = new PDO("mysql:host=localhost;dbname=dbphp7", "root", ""); //Caso tivesse senha colocaria root
 	}
     //Criando métodos
-	private function setParams($statment, $parameters = array())
+	private function setParams($statement, $parameters = array())
 	{
 		//Criar um foreach
 		foreach ($parameters as $key => $value)
 		{
-			$this->setParam($key, $value); 
+			$this->setParam($statement, $key, $value); 
 		}
 	}
 	private function setParam($statment, $key, $value)
 	{
-		$statment->bindParam($key, $value);
+		$statement->bindParam($key, $value);
 	}
 	//Fazer a execução dos comandos
 	public function query($rawQuery, $params = array())
