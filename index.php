@@ -16,6 +16,6 @@ echo json_encode($usuarios);
 //Criar uma variável
 $root = new Usuario();
 //Chamar o método que foi criado na classe Usuario
-$root = loadById(3);
+$root->loadbyId(3);
 echo $root;
 ?>

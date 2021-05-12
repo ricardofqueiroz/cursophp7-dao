@@ -20,7 +20,7 @@ class Sql extends PDO
 			$this->setParam($statement, $key, $value); 
 		}
 	}
-	private function setParam($statment, $key, $value)
+	private function setParam($statement, $key, $value)
 	{
 		$statement->bindParam($key, $value);
 	}
