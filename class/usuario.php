@@ -163,9 +163,25 @@ public function update($login, $password)
 	    ':ID'=>$this->getIdusuario()
 	));
 }
+
+//Criar função delete
+public function delete()
+{
+	$sql = new Sql();
+	//Usaremos a querey
+	$sql->query("DELETE FROM tb_usuarios WHERE idusuario = :ID", array(
+	    ':ID'=>$this->getIdusuario()
+	));
+	//Obs: Caso queira zerar as informações depois que são apagadas do banco de dados, como é feito.
+	$this->setIdusuario(0); //Deixar zerado
+	$this->setDeslogin(""); //Deixar vazio
+	$this->setDessenha(""); //Deixar vazio
+	$this->setDtcadastro(new DateTime()); //Deixar data atual, ou seja vazia, poderia deixar nulo "null".
+
+}
 //Caso queira que passe por um método construtor
 public function __construct($login = "", $password = "") 
-//Obs. é usado = "", porque caso chame ou não retorna como vazio, evita da erro, não se torna obrigatório
+//Obs. é usado = "", porque caso chame ou não retorna como vazio, evita da erro, não se torna obrigatório.
 {
 	$this->setDeslogin($login);
 	$this->setDessenha($password);
