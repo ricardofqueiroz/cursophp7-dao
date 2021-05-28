@@ -29,7 +29,31 @@ echo json_encode($usuarios);
 //echo json_encode($search);
 
 //Carregar um usuário usando o login e a senha
+//$usuario = new Usuario();
+//$usuario->login("root", "!@#$"); //Caso login e senha não existe será exibido "login e ou senha inválidos". 
+//echo $usuario;
+
+//Inserir no banco de dados
+/*
+$aluno = new Usuario();
+$aluno->setDeslogin("aluno");
+$aluno->setDessenha("@lun0");
+//Chamar o método insert pra mandar para o banco de dados
+$aluno->insert();
+echo $aluno;
+*/
+//Fazendo pelo método construtor feito no arquivo Usuario
+//Criando um novo usuário
+/*
+$aluno = new Usuario("aluno", "@lun0");
+$aluno->insert();
+echo $aluno;
+*/
+
+//Fazer update
 $usuario = new Usuario();
-$usuario->login("root", "!@#$"); //Caso login e senha não existe será exibido "login e ou senha inválidos". 
+$usuario->loadById(8);
+$usuario->update("professor", "!@#$%''&*");
 echo $usuario;
+
 ?>  
